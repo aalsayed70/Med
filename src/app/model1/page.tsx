@@ -44,7 +44,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   setTimeout(async () => {
     try {
       // Send a POST request to your Flask API
-      const response = await axios.post('http://localhost:5000/predict', {
+      const response = await axios.post('http://13.51.157.80:5000/predict', {
         age: formData.age,
         prePregDiabetes: formData.prePregDiabetes,
         prePregHypertension: formData.prePregHypertension,
