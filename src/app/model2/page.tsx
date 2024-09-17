@@ -53,7 +53,7 @@ const Model2: React.FC = () => {
   
     try {
       setLoading(true);
-      const response = await axios.post('http://13.51.157.80:5000/predict2', formDataToSend, {
+      const response = await axios.post('https://drnasserfarahat.com/predict2', formDataToSend, {
         headers: {
           'Content-Type': 'application/json',
         },
