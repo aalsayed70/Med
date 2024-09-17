@@ -1,0 +1,7 @@
+{
+  "extends": "next/core-web-vitals"
+}
+
+
+
+scp -i "C:\Users\besoe_9icjj6o\OneDrive\Desktop\Project web\AB-Project" -r C:\Users\besoe_9icjj6o\Documents\my-web-app ubuntu@ec2-13-48-138-164.eu-north-1.compute.amazonaws.com:/home/ubuntu/
