@@ -48,7 +48,7 @@ const Page: React.FC = () => {
       
             console.log("Sending payload:", payload);  // Debug the payload
       
-            const response = await axios.post('http://13.51.157.80:5000/predict4', payload, {
+            const response = await axios.post('https://13.51.157.80:5000/predict4', payload, {
               headers: {
                 'Content-Type': 'application/json'
               }
