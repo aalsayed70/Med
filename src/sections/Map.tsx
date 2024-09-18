@@ -46,6 +46,23 @@ const GoogleMapEmbed = () => {
         ></iframe>
       </motion.div>
 
+      {/* Button forwarding to Google Maps destination */}
+      <motion.a
+        href="https://www.google.com/maps/dir/?api=1&destination=30.634645,31.085579"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mb-12"
+      >
+        <motion.button
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="bg-yellow-400 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-300 transition-all transform hover:scale-105"
+        >
+          الانتقال إلى الموقع
+        </motion.button>
+      </motion.a>
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -58,7 +75,6 @@ const GoogleMapEmbed = () => {
         </p>
       </motion.div>
 
-      {/* New Section for Facebook Page */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
