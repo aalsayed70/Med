@@ -57,7 +57,7 @@ const GoogleMapEmbed = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-yellow-400 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-300 transition-all transform hover:scale-105"
+          className="bg-yellow-400 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-300  transform hover:scale-105"
         >
           الانتقال إلى الموقع
         </motion.button>
