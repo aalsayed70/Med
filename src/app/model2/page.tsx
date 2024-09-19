@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { UserCheck, Ruler, Weight, Activity } from 'lucide-react';
 import { Header } from "@/sections/Header"; 
 import axios from 'axios';
-
+import { TypeAnimation } from 'react-type-animation';
+import Footer from '@/sections/Footer';
 interface FormData {
   height_cm: string;
   weight_before_kg: string;
@@ -204,15 +205,36 @@ const Model2: React.FC = () => {
           </div>
   
           <button
-            type="submit"
-            className="w-full md:w-2/3 lg:w-1/2 mx-auto block bg-gradient-to-r from-yellow-500 via-pink-500 to-pink-300 text-white font-bold py-5 px-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 relative overflow-hidden group text-xl"
-          >
-            <span className="absolute inset-0 w-full h-full bg-white mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-300 ease-out"></span>
-            <span className="mr-2"></span>
-            الحصول على النتيجة
-            <span className="ml-2">✨</span>
-          </button>
-        </form>
+  type="submit"
+  className="w-full bg-gradient-to-r from-yellow-500 via-pink-400 to-pink-300 text-white font-bold py-4 px-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 relative overflow-hidden group"
+>
+  <span className="absolute inset-0 w-full h-full bg-white mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-300 ease-out"></span>
+  <span className="relative flex items-center justify-center z-10">
+    {loading ? (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-8 animate-bounce"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+    ) : (
+      <>
+        <span className="mr-2"></span>
+        الحصول على النتيجة
+        <span className="ml-2">✨</span>
+      </>
+    )}
+  </span>
+</button>
+</form>
   
         {error && (
           <div className="py-6">
@@ -283,15 +305,36 @@ const Model2: React.FC = () => {
           />
         </div>
       ) : null}
-      {prediction.comment && (
-        <div className="mt-8 p-6 bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100 rounded-lg shadow-md">
-          <div className="relative">
-            <div className="absolute -top-5 right-5 w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
-              </svg>
+{prediction.comment && (
+        <div className="mt-4 p-4 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 rounded-lg shadow-lg">
+          <div className="flex flex-col items-start">
+            <svg
+              className="w-8 h-8 text-pink-400 ml-64"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <div className="w-full max-w-2xl">
+              <TypeAnimation
+                sequence={[
+                  prediction.comment,
+                  1000,
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={0}
+                speed={70}
+                className="text-gray-800 text-right text-lg leading-relaxed font-medium block"
+              />
             </div>
-            <p className="text-gray-800 text-right text-lg leading-relaxed pt-6 font-medium" dir="rtl">{prediction.comment}</p>
           </div>
         </div>
       )}
@@ -299,6 +342,9 @@ const Model2: React.FC = () => {
   </div>
 )}
       </div>
+      </div>
+      <div className='mt-24'>
+      <Footer/>
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Facebook } from 'lucide-react';
+import './BoxStyle.css'; 
 
 export const Footer = () => {
   return (

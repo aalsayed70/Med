@@ -27,10 +27,7 @@ export const Models = () => {
           />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <div
           className="bg-gradient-to-br from-pink-400 to-purple-500 text-center text-white max-w-3xl mx-auto px-6 py-8 rounded-xl shadow-2xl border-2 border-pink-300 relative z-10 mb-6 overflow-hidden"
         >
           <div className="absolute inset-0 bg-white opacity-10 transform rotate-3"></div>
@@ -41,7 +38,7 @@ export const Models = () => {
             <br className="hidden md:inline" /> تطمني على صحة الحمل وتقديم تحليلات دقيقة
             <br className="hidden md:inline" /> هتساعدك في حاجات زي
           </p>
-        </motion.div>
+        </div>
       </div>
 
       <Modelss />
