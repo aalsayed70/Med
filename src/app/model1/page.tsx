@@ -38,31 +38,37 @@ const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
   setFormData(prevData => ({ ...prevData, [name]: value }));
 };
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-  setLoading(true); // Show loading indicator
+  setLoading(true);
+  setError(null);
+  setPrediction(null);
 
   setTimeout(async () => {
     try {
-      // Send a POST request to your Flask API
-      const response = await axios.post('https://drnasserfarahat.com/predict', {
+      const response = await axios.post('http://localhost:5000/predict', {
         age: formData.age,
         prePregDiabetes: formData.prePregDiabetes,
         prePregHypertension: formData.prePregHypertension,
         numPrevCesarean: formData.numPrevCesarean,
         heightClass: formData.height,
         weightClass: formData.weight,
+      }, {
+        headers: {
+          'Cache-Control': 'no-cache'
+        }
       });
 
-      // Set the prediction result from the Flask response
       setPrediction(response.data);
     } catch (error) {
       console.error('Error making prediction:', error);
+      setError('Failed to get prediction. Please try again.');
     } finally {
-      setLoading(false); // Hide loading indicator
+      setLoading(false);
     }
-  }, 3000); // 3-second delay
+  }, 3000);
 };
+
 
 
   return (
