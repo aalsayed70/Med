@@ -69,10 +69,10 @@ const Page: React.FC = () => {
   };
 
   return (
-    <>
+   <>
       <Header />
-      <div className="container mx-auto p-4 bg-gray-100 rounded-3xl shadow-md mt-6 " dir="rtl">
-        <h2 className="text-xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-400 via-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg tracking-wide py-6 px-4 text-center">
+      <div className="container mx-auto p-4 bg-gray-100 rounded-3xl shadow-md mt-6" dir="rtl">
+        <h2 className="text-xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-400 via-pink-400 to-orange-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide py-6 px-4 text-center">
             خطورة الإصابه بمرض ضغط الحمل بالذكاء الإصطناعي
         </h2>
 
@@ -104,7 +104,7 @@ const Page: React.FC = () => {
 
           <div className="space-y-2">
   <label className="font-medium items-center text-orange-400">
-    <Ruler className="mr-2 ml-2 text-pink-300" /> الطول (بالسنتيمتر)
+    <Ruler className="mr-2 ml-2 text-pink-300 " /> الطول (بالسنتيمتر)
   </label>
   <input
     type="number"
@@ -113,7 +113,7 @@ const Page: React.FC = () => {
     onChange={handleChange}
     required
     placeholder="أدخل الطول (سم)"
-    className="w-full p-2  rounded bg-gradient-to-r from-yellow-400 to-pink-300 text-white bg-pink-300"
+    className="w-full p-2  rounded bg-gradient-to-r from-yellow-400 to-pink-300 text-white bg-pink-300 placeholder-white"
   />
 </div>
 
@@ -128,7 +128,7 @@ const Page: React.FC = () => {
     onChange={handleChange}
     required
     placeholder="أدخل الوزن (كجم)"
-    className="w-full p-2  rounded bg-gradient-to-r from-yellow-400 to-pink-300 text-white bg-pink-300"
+    className="w-full p-2  rounded bg-gradient-to-r from-yellow-400 to-pink-300 text-white bg-pink-300 placeholder-white"
   />
 </div>
 
