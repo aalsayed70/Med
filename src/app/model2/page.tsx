@@ -305,8 +305,8 @@ const Model2: React.FC = () => {
           />
         </div>
       ) : null}
-{prediction.comment && (
-        <div className="p-4 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 rounded-lg shadow-lg">
+ {prediction.comment && (
+        <div className="mt-4 p-4 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 rounded-lg shadow-lg">
           <div className="flex flex-col items-center">
             <svg
               className="w-8 h-8 text-pink-400 ml-64"
@@ -336,8 +336,8 @@ const Model2: React.FC = () => {
               />
             </div>
           </div>
-        </div>
-      )}
+        </div>
+      )}
     </div>
   </div>
 )}
