@@ -47,7 +47,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   setTimeout(async () => {
     try {
-      const response = await axios.post('http://localhost:5000/predict', {
+      const response = await axios.post('https://drnasserfarahat.com/predict', {
         age: formData.age,
         prePregDiabetes: formData.prePregDiabetes,
         prePregHypertension: formData.prePregHypertension,
@@ -265,6 +265,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   </span>
 </button>
 </form>
+       {error && (
+          <div className="py-4">
+            <p className="text-red-500 font-bold text-center">{error}</p>
+          </div>
+        )}
       {loading && (
         <div className="py-4 flex justify-center ">
           <div className="relative flex items-center justify-center w-20 h-20">
