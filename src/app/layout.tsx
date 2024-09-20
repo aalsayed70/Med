@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Kufi_Arabic } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 const dmSans = Noto_Kufi_Arabic({ subsets: ["latin"] });
@@ -29,6 +31,8 @@ export default function RootLayout({
     <html lang="en" className="relative">
       <body className={clsx(dmSans.className, "antialiased bg-[#ffffff]")}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
