@@ -225,6 +225,12 @@ const Page: React.FC = () => {
 </button>
 </form>
 
+        {error && (
+          <div className="py-4">
+            <p className="text-red-500 font-bold text-center">{error}</p>
+          </div>
+        )}
+
         {loading && (
           <div className="py-4 flex justify-center ">
             <div className="relative flex items-center justify-center w-20 h-20">
