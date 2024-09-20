@@ -30,7 +30,8 @@ const Page: React.FC = () => {
   });
   const [prediction, setPrediction] = useState<Prediction | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
+  const [error, setError] = useState<string | null>(null);
+  
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
@@ -39,7 +40,9 @@ const Page: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-
+    setError(null);
+    setPrediction(null);
+    
     setTimeout(async () => {
         try {
             const payload = {
