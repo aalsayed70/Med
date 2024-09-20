@@ -28,7 +28,8 @@ const Page: React.FC = () => {
     });
   const [prediction, setPrediction] = useState<Prediction | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
+  const [error, setError] = useState<string | null>(null);
+    
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
@@ -37,6 +38,8 @@ const Page: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
+    setPrediction(null);
 
     setTimeout(async () => {
         try {
@@ -191,6 +194,11 @@ const Page: React.FC = () => {
   </span>
 </button>
 </form>
+          {error && (
+          <div className="py-4">
+            <p className="text-red-500 font-bold text-center">{error}</p>
+          </div>
+        )}
 
         {loading && (
           <div className="py-4 flex justify-center ">
