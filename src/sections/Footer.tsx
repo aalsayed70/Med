@@ -12,7 +12,7 @@ export const Footer = () => {
             <div className="flex items-center justify-center md:justify-start space-x-2">
 
               <p className="text-sm text-gray-400">
-                صمم بواسطة 
+                طُوِّرَ بواسطة 
                 <a 
                   href="https://www.facebook.com/profile.php?id=100012224269455" 
                   target="_blank" 
