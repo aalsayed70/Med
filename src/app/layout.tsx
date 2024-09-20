@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Kufi_Arabic } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
+import { Analytics } from "@vercel/analytics/react"
 
 const dmSans = Noto_Kufi_Arabic({ subsets: ["latin"] });
 
