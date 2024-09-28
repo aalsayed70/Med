@@ -10,50 +10,51 @@ export const Hero = () => {
   const contentRef = useRef<HTMLDivElement>(null); // Updated ref
 
 
-const handleScrollDown = () => {
-  if (contentRef.current) {
-    const yOffset = 2650;
-    const targetPosition = contentRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    const duration = 12000; // Total scroll duration
-    let startTime = null;
-    let animationFrameId;
 
-    // Ease-out cubic function for fast-to-slow effect
-    const easeOutCubic = (t) => {
-      return 1 - Math.pow(1 - t, 3);
-    };
-
-    const animation = (currentTime) => {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-
-      // Scroll according to ease-out cubic
-      const run = easeOutCubic(progress) * distance + startPosition;
-      window.scrollTo(0, run);
-
-      if (timeElapsed < duration) {
-        animationFrameId = requestAnimationFrame(animation);
-      }
-    };
-
-    // Start the scrolling animation
-    animationFrameId = requestAnimationFrame(animation);
-
-    // Function to cancel the animation on user interaction (touch/mouse)
-    const cancelScroll = () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('mousedown', cancelScroll);
-      window.removeEventListener('touchstart', cancelScroll);
-    };
-
-    // Add event listeners for mouse and touch events
-    window.addEventListener('mousedown', cancelScroll);
-    window.addEventListener('touchstart', cancelScroll);
-  }
-};
+  const handleScrollDown = () => {
+    if (contentRef.current) {
+      const yOffset = 2650;
+      const targetPosition = contentRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 12000; // Total scroll duration
+      let startTime: number | null = null; // Specify the type of startTime
+      let animationFrameId: number; // Specify the type of animationFrameId
+  
+      // Ease-out cubic function for fast-to-slow effect
+      const easeOutCubic = (t: number): number => {
+        return 1 - Math.pow(1 - t, 3);
+      };
+  
+      const animation = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+  
+        // Scroll according to ease-out cubic
+        const run = easeOutCubic(progress) * distance + startPosition;
+        window.scrollTo(0, run);
+  
+        if (timeElapsed < duration) {
+          animationFrameId = requestAnimationFrame(animation);
+        }
+      };
+  
+      // Start the scrolling animation
+      animationFrameId = requestAnimationFrame(animation);
+  
+      // Function to cancel the animation on user interaction (touch/mouse)
+      const cancelScroll = () => {
+        cancelAnimationFrame(animationFrameId);
+        window.removeEventListener('mousedown', cancelScroll);
+        window.removeEventListener('touchstart', cancelScroll);
+      };
+  
+      // Add event listeners for mouse and touch events
+      window.addEventListener('mousedown', cancelScroll);
+      window.addEventListener('touchstart', cancelScroll);
+    }
+  };
 
 
   return (
