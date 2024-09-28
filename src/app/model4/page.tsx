@@ -246,7 +246,7 @@ const Page: React.FC = () => {
         }}
       >
         {prediction.risk}
-        {"/9"}
+        {"/5"}
       </span>
     </motion.div>
 
