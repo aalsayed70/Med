@@ -13,11 +13,11 @@ export const Hero = () => {
 
   const handleScrollDown = () => {
     if (contentRef.current) {
-      const yOffset = 2650;
+      const yOffset = 840;
       const targetPosition = contentRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
-      const duration = 12000; // Total scroll duration
+      const duration = 6000; // Total scroll duration
       let startTime: number | null = null; // Specify the type of startTime
       let animationFrameId: number; // Specify the type of animationFrameId
   

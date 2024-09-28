@@ -266,6 +266,7 @@ const Page: React.FC = () => {
         }}
       >
         {prediction.risk}
+        {"/9"}
       </span>
       
     </div>

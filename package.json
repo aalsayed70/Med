@@ -23,7 +23,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-type-animation": "^3.2.0",
-    "typewriter-effect": "^2.21.0"
+    "typewriter-effect": "^2.21.0",
+    "vercel": "^37.6.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
