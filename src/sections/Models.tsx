@@ -12,20 +12,14 @@ export const Models = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="flex flex-col items-center mt-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 w-60 h-60 bg-gradient-to-br from-blue-400 to-pink-500 rounded-full shadow-2xl p-4 flex justify-center items-center relative"
-        >
+       
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-pink-500 blur-3xl opacity-50"></div>
           <Image
             src={cogImage}
             alt="AI"
             className="w-full h-full object-contain relative z-10"
           />
-        </motion.div>
+        
 
         <div
           className="bg-gradient-to-br from-pink-400 to-purple-500 text-center text-white max-w-3xl mx-auto px-6 py-8 rounded-xl shadow-2xl border-2 border-pink-300 relative z-10 mb-6 overflow-hidden"
