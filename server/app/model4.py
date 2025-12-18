@@ -5,13 +5,16 @@ from flask_cors import CORS
 import pandas as pd
 import openai
 import math
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
+load_dotenv()
 
 model = joblib.load(open('gest_hypertension_model_class.pkl', 'rb'))
 
-openai.api_key = "***********************************************"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_chatgpt_comment(risk_factor, input_data, bmi):
     if bmi > 30:

@@ -4,12 +4,15 @@ import numpy as np
 import logging
 import openai  
 import math
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
 
 logging.basicConfig(level=logging.DEBUG)
-openai.api_key = "**********************************************************"
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 def generate_weight_comment(current_weight, lower_bound, upper_bound, weeks):
     prompt = f"""
                 

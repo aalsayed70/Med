@@ -18,7 +18,7 @@ CORS(app)
 model = joblib.load(open('labor_tree_model_final.pkl', 'rb'))
 
 # Configure OpenAI API
-openai.api_key = "**************************************"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_chatgpt_comment(prediction_percentages, input_data):
     bmi = input_data['Weight_class']/(input_data['Hight_class'] * input_data['Hight_class']) * 10000
